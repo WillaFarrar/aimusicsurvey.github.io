@@ -2,22 +2,112 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> AI Music Survey</title>
-   
-  <body>  
-    <h1>Welcome to the Survey!</h1>
+    <title> TEST AI Music Survey</title>
 
+    <style>
+      .question {display: none;}
+    
+    </style>
+   
+  <body>    
+<div class="question">
+    <h1>Welcome to the Survey!</h1>
+    <p>Thank you so much for agreeing to participate in my survey. I am conducting research regarding AI generated music
+      How cooked are we? Well let's find out.
+    </p>
+    </div>
   <form action = "https://formsubmit.co/aimusicsurvey@gmail.com" method="POST">
+  
+<!-- Question 1-->
+ <div class="question">
       <label for="fname">* First Name:</label><br>
       <input type="text" id="fname" name="fname" required><br>
       
-        <label for="lname">* Last Name:</label><br>
-        <input type="text" id="lname" name="lname" required><br> 
+       <label for="lname">* Last Name:</label><br>
+      <input type="text" id="lname" name="lname" required><br> <br>
+  </div>
 
+
+<!-- Question 2-->
+ <div class="question">
+        <label for="Question 2">Another 2 audio clips:</label><br>
+        <figure>
+        <figcaption>Audio Option 1</figcaption>
+        <audio controls title="Audio Option 1">
+            <source src="Files/mixkit-terror-sweep-of-darkness-2630.wav" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        </figure>
         <br>
+        <figure>
+          <figcaption>Audio Option 2</figcaption>
+        <audio controls>
+          <source src="Files/testaudiofile.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </figure>
+      <br>
+        <select id="question2" name="question2">
+            <option value="option1">1</option>
+            <option value="option2">2</option>
+            <option value="option3">3</option>
+        </select>
+ </div>
 
-        <input type="submit" value="Send!" />
+       
 
-  </form>    
+        <br><br>
+        <!-- Submit questions-->  
+         
+        <div class="question">
+          <input type="submit" value="Send!" />
+        </div>
+
+
+  </form>   
+
+  <!--Forward and backwards buttons-->
+  <button onclick="plusDivs(-1)"> &#10094 </button>
+  <button onclick="plusDivs(1)"> &#10095</button>
+
+<script>
+  <!-- JavaScript Button Controls-->
+   var currentQuestion = 1;
+   showDivs(currentQuestion);
+
+   function plusDivs(n)
+   {
+    showDivs(currentQuestion += n);
+
+   }
+
+   function showDivs(n)
+   {
+    var i;
+    var x = document.getElementsByClassName("question");
+
+    if (n > x.length)
+    {
+      currentQuestion = 1;
+    }
+
+    if (n < 1) 
+    {
+      currentQuestion = x.length;
+    }
+
+    for (i = 0; i < x.length; i++)
+    {
+      x[i].style.display = "none";
+    }
+    x[currentQuestion-1].style.display = "block";
+
+   }
+
+   </script>
+  
+  
+  
+
   </body>
 </html>

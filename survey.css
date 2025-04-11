@@ -1,0 +1,53 @@
+ /*Survey CSS*/
+ 
+/*Classes*/ 
+ .slide 
+ {
+  display: none;
+  display: flex;
+  flex-direction: column;
+
+} 
+ 
+ 
+/*IDs*/      
+#nextBtn
+  {
+      height: 50px;
+      width: 50px
+  }
+
+#backBtn
+  {
+    height: 50px;
+    width: 50px
+  }
+
+#wrapper
+{ 
+  background-color: #c4d0ed;
+  margin: auto;
+    width: 80%;
+  padding-top: 2em;
+  padding-bottom: 4em;
+  margin-top: 2em;
+ 
+}
+
+body 
+{
+  background: #21376D; color: #000;
+  font-family: Verdana;
+  text-align: center;
+
+}
+
+
+
+button
+{
+  display: flex;
+  flex-direction: row;
+  font-family: Verdana;
+  
+}

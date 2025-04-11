@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> TEST AI Music Survey</title>
+    <link rel="stylesheet" href="survey.css">
+    <title>AI Music Survey</title>
 
-    <style>
-      .question {display: none;}
-    
-    </style>
+  </head>
+
    
-  <body>    
-<div class="question">
+<body>  
+  
+<div id="wrapper">
+<div class="slide">
     <h1>Welcome to the Survey!</h1>
     <p>Thank you so much for agreeing to participate in my survey. I am conducting research regarding AI generated music
       How cooked are we? Well let's find out.
@@ -19,7 +20,7 @@
   <form action = "https://formsubmit.co/aimusicsurvey@gmail.com" method="POST">
   
 <!-- Question 1-->
- <div class="question">
+ <div class="slide">
       <label for="fname">* First Name:</label><br>
       <input type="text" id="fname" name="fname" required><br>
       
@@ -29,8 +30,8 @@
 
 
 <!-- Question 2-->
- <div class="question">
-        <label for="Question 2">Another 2 audio clips:</label><br>
+ <div class="slide">
+        <label for="q2">Another 2 audio clips:</label><br>
         <figure>
         <figcaption>Audio Option 1</figcaption>
         <audio controls title="Audio Option 1">
@@ -47,7 +48,7 @@
         </audio>
       </figure>
       <br>
-        <select id="question2" name="question2">
+        <select id="q2" name="question2">
             <option value="option1">1</option>
             <option value="option2">2</option>
             <option value="option3">3</option>
@@ -59,55 +60,84 @@
         <br><br>
         <!-- Submit questions-->  
          
-        <div class="question">
-          <input type="submit" value="Send!" />
+        <div class="slide">
+          <input type="submit" value="Submit!" />
         </div>
 
 
   </form>   
 
-  <!--Forward and backwards buttons-->
-  <button onclick="plusDivs(-1)"> &#10094 </button>
-  <button onclick="plusDivs(1)"> &#10095</button>
+  <!--Backwards and Forwards buttons-->
+  <button id="backBtn" onclick="advanceSlide(-1)"> &#10096 Back </button>
+  <button id="nextBtn" onclick="advanceSlide(1)"> &#10097 Next </button>
+
+  </div>
 
 <script>
   <!-- JavaScript Button Controls-->
-   var currentQuestion = 1;
-   showDivs(currentQuestion);
+   var currentSlide = 1;
+   displaySlide(currentSlide);
 
-   function plusDivs(n)
+
+   function advanceSlide(n)
    {
-    showDivs(currentQuestion += n);
+    displaySlide(currentSlide += n);
 
    }
 
-   function showDivs(n)
+   function displaySlide(n)
    {
     var i;
-    var x = document.getElementsByClassName("question");
+    var x = document.getElementsByClassName("slide");
+    var forward = document.getElementById("nextBtn");
+    var back = document.getElementById("backBtn");
 
-    if (n > x.length)
+    var totalSlides = x.length;
+
+
+    if (n > totalSlides)
     {
-      currentQuestion = 1;
+      currentSlide = 1;
     }
 
     if (n < 1) 
     {
-      currentQuestion = x.length;
+      currentSlide = totalSlides;
     }
 
-    for (i = 0; i < x.length; i++)
+    for (i = 0; i < totalSlides; i++)
     {
       x[i].style.display = "none";
     }
-    x[currentQuestion-1].style.display = "block";
+
+    x[currentSlide-1].style.display = "block";
+
+    if (currentSlide == totalSlides)
+    {
+      forward.style.display = "none";
+    }
+    else
+    {
+      forward.style.display = "inline";
+    }
+
+    if (currentSlide == 1)
+    {
+      back.style.display = "none";
+    }
+    else
+    {
+      back.style.display = "inline";
+    }
 
    }
 
    </script>
+
   
   
   
 
   </body>
+
 </html>

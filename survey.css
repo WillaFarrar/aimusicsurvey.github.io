@@ -23,8 +23,6 @@
   text-align: center;
 }
 
-
- 
 .textbox audio
 {
   margin-left: none;
@@ -88,4 +86,26 @@ select
   height: 40px;
   width: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/*Media Queries*/
+@media screen and (max-width: 600px)
+{
+  body
+  {
+    background-color: lightblue;
+  }
+
+  #wrapper
+{ 
+  background-color: #F8F8F8;
+  margin: auto;
+    width: 50%;
+    height: 90%;
+  padding-top: 2em;
+  padding-bottom: 4em;
+  margin-top: 2em;
+}
+ 
 }

@@ -78,6 +78,7 @@ button
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-left: 1em;
   margin-right: 1em;
+
   
 }
 
@@ -90,22 +91,58 @@ select
 
 
 /*Media Queries*/
+
+/*For Phone Screens*/
 @media screen and (max-width: 600px)
 {
-  body
-  {
-    background-color: lightblue;
-  }
-
+  
   #wrapper
 { 
   background-color: #F8F8F8;
   margin: auto;
-    width: 50%;
-    height: 90%;
+    width: 95%;
   padding-top: 2em;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
   margin-top: 2em;
+  margin-bottom: 2em;
+
 }
+
+
+.textbox
+{
+  margin: auto;
+    width: 75%;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+body 
+{
+  text-align: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0%;
+  padding:0%;
+ 
+}
+body p
+{
+  font-size: medium;
+  text-align: left;
+}
+
+body label
+{
+  font-size: medium;
+  text-align: left;
+  margin-left: 0%;
+}
+
+body audio
+{
+ width: 90%
+}
+
  
 }

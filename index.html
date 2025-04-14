@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="survey.css">
+    <link rel="stylesheet" href="Files/survey.css">
     <title>AI Music Survey</title>
 
   </head>
@@ -12,11 +12,14 @@
   
 <div id="wrapper">
 <div class="slide">
+  <div class="textbox">
     <h1>Welcome to the Survey!</h1>
     <p>Thank you so much for agreeing to participate in my survey. I am conducting research regarding AI generated music
       How cooked are we? Well let's find out.
     </p>
     </div>
+    </div>
+    <!--Send form to my survey email for review-->
   <form action = "https://formsubmit.co/aimusicsurvey@gmail.com" method="POST">
   
 <!-- Question 1-->
@@ -31,28 +34,44 @@
 
 <!-- Question 2-->
  <div class="slide">
-        <label for="q2">Another 2 audio clips:</label><br>
+  <div class="textbox">
+        <label for="q1">1. Please listen to these two audio clips.</label><br>
+        <p>The theme was: "The emptiness of a dream unfulfilled."</p>
+        <p>⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺</p>
         <figure>
-        <figcaption>Audio Option 1</figcaption>
-        <audio controls title="Audio Option 1">
-            <source src="Files/mixkit-terror-sweep-of-darkness-2630.wav" type="audio/mpeg">
+        <audio controls title="Audio Excerpt 1">
+            <source src="Files/Space Jazz.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+        <figcaption>Audio Excerpt 1</figcaption>
         </figure>
         <br>
+
         <figure>
-          <figcaption>Audio Option 2</figcaption>
+
         <audio controls>
           <source src="Files/testaudiofile.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
+        <figcaption>Audio Excerpt 2</figcaption>
       </figure>
       <br>
-        <select id="q2" name="question2">
-            <option value="option1">1</option>
-            <option value="option2">2</option>
-            <option value="option3">3</option>
+
+      <p>Which excerpt do you think was written by AI?</p>
+        <select id="q1a" name="question1a" required>
+            <option value=""></option>
+            <option value="Excerpt 1">1</option>
+            <option value="Excerpt 2">2</option>            
         </select>
+
+        <p>Which excerpt did you feel best expressed the theme?</p>
+        <select id="q1b" name="question1b" required>
+            <option value=""></option>
+            <option value="Excerpt 1">1</option>
+            <option value="Excerpt 2">2</option>            
+        </select>
+
+        </div>
  </div>
 
        
@@ -61,8 +80,11 @@
         <!-- Submit questions-->  
          
         <div class="slide">
+          <h1>Thank you for completing the survey!</h1>
+          <h4> You response is greatly appreciated.</h4>
           <input type="submit" value="Submit!" />
         </div>
+        <br>
 
 
   </form>   
@@ -73,20 +95,49 @@
 
   </div>
 
+  <!--JavaScript for button controls-->
 <script>
-  <!-- JavaScript Button Controls-->
    var currentSlide = 1;
    displaySlide(currentSlide);
 
 
+   //Switch to the next slide
    function advanceSlide(n)
    {
-    displaySlide(currentSlide += n);
+    
+    var x = document.getElementsByClassName("slide")[currentSlide - 1];
+    var inputs = x.querySelectorAll("input[required]");
+    var selects = x.querySelectorAll("select[required]");
 
+   for (var i = 0; i < inputs.length; i++)
+   {
+      if (!inputs[i].checkValidity())
+      {
+        inputs[i].reportValidity();
+        return;
+      }
    }
 
+   for (var i = 0; i < selects.length; i++)
+   {
+      if (!selects[i].checkValidity())
+      {
+        selects[i].reportValidity();
+        return;
+      }
+   }
+    displaySlide(currentSlide += n);
+}
+   
+    
+ 
+
+
+   //Show the current slide
    function displaySlide(n)
    {
+
+   //Initializations
     var i;
     var x = document.getElementsByClassName("slide");
     var forward = document.getElementById("nextBtn");
@@ -94,7 +145,8 @@
 
     var totalSlides = x.length;
 
-
+    //Prevents slide counter from being more than total number of slides
+    //or less than zero
     if (n > totalSlides)
     {
       currentSlide = 1;
@@ -112,6 +164,7 @@
 
     x[currentSlide-1].style.display = "block";
 
+    //Hides forward button on last slide
     if (currentSlide == totalSlides)
     {
       forward.style.display = "none";
@@ -121,6 +174,7 @@
       forward.style.display = "inline";
     }
 
+      //Hides back button on first slide
     if (currentSlide == 1)
     {
       back.style.display = "none";

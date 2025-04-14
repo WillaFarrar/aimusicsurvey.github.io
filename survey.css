@@ -8,7 +8,37 @@
   flex-direction: column;
 
 } 
+
+.textbox
+{
+  margin: auto;
+    width: 50%;
+    text-align: justify;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.textbox h1
+{
+  text-align: center;
+}
+
+
  
+.textbox audio
+{
+  margin-left: none;
+}
+
+.textbox figure
+{
+  margin-left: 0%;
+}
+
+.textbox figcaption
+{
+  font-size: smaller;
+}
  
 /*IDs*/      
 #nextBtn
@@ -25,7 +55,7 @@
 
 #wrapper
 { 
-  background-color: #c4d0ed;
+  background-color: #F8F8F8;
   margin: auto;
     width: 80%;
   padding-top: 2em;
@@ -36,18 +66,26 @@
 
 body 
 {
-  background: #21376D; color: #000;
-  font-family: Verdana;
+  background: #D9D9D9; color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 
 }
-
 
 
 button
 {
   display: flex;
   flex-direction: row;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 1em;
+  margin-right: 1em;
   
+}
+
+select
+{
+  height: 40px;
+  width: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

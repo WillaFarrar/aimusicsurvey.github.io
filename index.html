@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale =1.0">
-    <link rel="stylesheet" href="survey.css">
-    <title>AI Music Survey</title>
+    <link rel="stylesheet" href="Files/survey.css">
+    <title> TEST AI Music Survey</title>
 
   </head>
 
@@ -118,8 +118,8 @@
   </form>   
 
   <!--Backwards and Forwards buttons-->
-  <button id="backBtn" onclick="advanceSlide(-1)"> &#10096 Back </button>
-  <button id="nextBtn" onclick="advanceSlide(1)"> &#10097 Next </button>
+  <button id="backBtn"> &#10096 Back </button>
+  <button id="nextBtn"> &#10097 Next </button>
 
   </div>
 
@@ -145,7 +145,7 @@
        if(!audios[i].ended)
         {
   
-           alert("Please listen to the audio files before continuing.");
+           alert("Please listen to both audio files in their entirety before continuing.");
            return;  
    
         }
@@ -228,6 +228,18 @@
     }
 
    }
+
+   document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("backBtn").addEventListener("click", function () 
+  {
+    advanceSlide(-1);
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", function () 
+  {
+    advanceSlide(1);
+  });
+});
 
    </script>
 

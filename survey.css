@@ -123,6 +123,24 @@ select
     padding-top: 1em;
     padding-bottom: 1em;
 }
+
+.textbox audio
+{
+  margin-left: 0%;
+  width: 98%;
+}
+
+.textbox figure
+{
+  margin-left: 0%;
+}
+
+.textbox figcaption
+{
+  font-size: smaller;
+}
+
+
 body 
 {
   text-align: center;
@@ -145,9 +163,6 @@ body label
   margin-left: 0%;
 }
 
-body audio
-{
- width: 90%
-}
+
 
 }

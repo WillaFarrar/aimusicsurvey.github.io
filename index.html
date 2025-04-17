@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale =1.0">
-    <link rel="stylesheet" href="survey.css">
-    <title>AI Music Survey</title>
+    <link rel="stylesheet" href="Files/survey.css">
+    <title> TEST AI Music Survey</title>
 
   </head>
 
@@ -15,21 +15,37 @@
 <div class="slide">
   <div class="textbox">
     <h1>Welcome to the Survey!</h1>
-    <p>Thank you so much for agreeing to participate in my survey. I am conducting research regarding AI generated music
-      How cooked are we? Well let's find out.
+    <p>Thank you so much for agreeing to take this survey. I am conducting research regarding AI generated music. 
+      Are you able to tell the difference?
+
+      <br><br>
+
+      Click “Next” for details.
+      
     </p>
     </div>
     </div>
     <!--Send form to my survey email for review-->
   <form action = "https://formsubmit.co/aimusicsurvey@gmail.com" method="POST">
   
-<!-- Question 1-->
+<!-- Slide 1-->
  <div class="slide">
-      <label for="fname">* First Name:</label><br>
-      <input type="text" id="fname" name="fname" required><br>
-      
-       <label for="lname">* Last Name:</label><br>
-      <input type="text" id="lname" name="lname" required><br> <br>
+  <div class ="textbox">
+    <h1>Instructions</h1>
+      <p>This survey involves listening to music and determining what was written by AI, and what was written by a real person. 
+        Headphones are recommended but not required. 
+        The survey should take no more than 20 minutes. All required questions are marked with an <b>asterisk (*)</b>.
+         You must answer all required questions on each slide to continue to the next one. Questions with no asterisk are optional.
+
+         There are <b>8</b> short excerpts to listen to. Two excerpts will be presented at a time. 
+         After listening to each excerpt, there will be a few short questions to answer. 
+         
+        
+        <br><br>
+        
+        When you are ready to begin the survey, press “Next.”
+        </p>
+        </div>
   </div>
 
 
@@ -39,8 +55,8 @@
         <label for="q1">1. Please listen to these two audio clips.</label><br>
         <p>The theme was: "The emptiness of a dream unfulfilled."</p>
         <figure>
-        <audio controls title="Audio Excerpt 1">
-            <source src="Files/Space Jazz.mp3" type="audio/mpeg">
+        <audio class="audio" controls title="Audio Excerpt 1">
+            <source src="Files/testaudiofile.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <figcaption>Audio Excerpt 1</figcaption>
@@ -50,7 +66,7 @@
         <figure>
 
         <audio controls>
-          <source src="Files/testaudiofile.mp3" type="audio/mpeg">
+          <source class="audio" src="Files/testaudiofile.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
         <figcaption>Audio Excerpt 2</figcaption>
@@ -60,15 +76,15 @@
       <p>Which excerpt do you think was written by AI?</p>
         <select id="q1a" name="question1a" required>
             <option value=""></option>
-            <option value="Excerpt 1">1</option>
-            <option value="Excerpt 2">2</option>            
+            <option value="E1">Excerpt 1</option>
+            <option value="E2">Excerpt 2</option>            
         </select>
 
         <p>Which excerpt did you feel best expressed the theme?</p>
         <select id="q1b" name="question1b" required>
             <option value=""></option>
-            <option value="Excerpt 1">1</option>
-            <option value="Excerpt 2">2</option>            
+            <option value="Excerpt 1">Excerpt 1</option>
+            <option value="Excerpt 2">Excerpt 2</option>            
         </select>
 
         </div>
@@ -80,8 +96,15 @@
         <!-- Submit questions-->  
          
         <div class="slide">
-          <h1>Thank you for completing the survey!</h1>
-          <h4> You response is greatly appreciated.</h4>
+          <div class="textbox">
+        <h1>You’ve reached the end of the survey!</h1>
+        <p>Use the “Back” button if you would like to review your answers. 
+          When you are ready, press “Submit.”</p>
+
+        <br>
+        </div>
+
+        <!--Submit BUtton-->
           <input type="submit" value="Submit!" />
         </div>
         <br>
@@ -108,6 +131,7 @@
     var x = document.getElementsByClassName("slide")[currentSlide - 1];
     var inputs = x.querySelectorAll("input[required]");
     var selects = x.querySelectorAll("select[required]");
+    var audios = x.querySelectorAll("audio");
 
    for (var i = 0; i < inputs.length; i++)
    {
@@ -126,8 +150,22 @@
         return;
       }
    }
-    displaySlide(currentSlide += n);
+
+   for (var i = 0; i < audios.length; i++)
+   {
+  if(!audios[i].ended)
+   {
+  
+    alert("Please listen to the audio files before continuing.");
+    return;  
+   
+  }
 }
+
+  displaySlide(currentSlide += n);
+}
+
+
    
     
  

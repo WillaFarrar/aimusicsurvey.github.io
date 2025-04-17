@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale =1.0">
     <link rel="stylesheet" href="survey.css">
-    <title> AI Music Survey</title>
+    <title>AI Music Survey</title>
 
   </head>
 
@@ -26,7 +26,7 @@
     </div>
     </div>
     <!--Send form to my survey email for review-->
-  <form action = "https://formsubmit.co/aimusicsurvey@gmail.com" method="POST">
+  <form action = "https://formsubmit.co/4705812dfb9aa5cb528c2c983052092f" method="POST">
   
 <!-- Slide 1-->
  <div class="slide">
@@ -34,8 +34,12 @@
     <h1>Instructions</h1>
       <p>This survey involves listening to music and determining what was written by AI, and what was written by a real person. 
         Headphones are recommended but not required. 
-        The survey should take no more than 20 minutes. All required questions are marked with an <b>asterisk (*)</b>.
+        The survey should take no more than 20 minutes. 
+        <br><br>
+         All required questions are marked with an <b>asterisk (*)</b>.
          You must answer all required questions on each slide to continue to the next one. Questions with no asterisk are optional.
+
+         <br><br>
 
          There are <b>8</b> short excerpts to listen to. Two excerpts will be presented at a time. 
          After listening to each excerpt, there will be a few short questions to answer. 
@@ -52,10 +56,10 @@
 <!-- Question 2-->
  <div class="slide">
   <div class="textbox">
-        <label for="q1">1. Please listen to these two audio clips.</label><br>
+        <label for="q1a">1. Please listen to these two audio clips.</label><br>
         <p>The theme was: "The emptiness of a dream unfulfilled."</p>
         <figure>
-        <audio class="audio" controls title="Audio Excerpt 1">
+        <audio controls title="Audio Excerpt 1">
             <source src="Files/testaudiofile.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
@@ -66,7 +70,7 @@
         <figure>
 
         <audio controls>
-          <source class="audio" src="Files/testaudiofile.mp3" type="audio/mpeg">
+          <source src="Files/testaudiofile.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
         <figcaption>Audio Excerpt 2</figcaption>
@@ -105,7 +109,8 @@
         </div>
 
         <!--Submit BUtton-->
-          <input type="submit" value="Submit!" />
+          <input type="submit" value="Submit!"/>
+          <input type="hidden" name="_next" value="thanks.html">
         </div>
         <br>
 
@@ -128,11 +133,25 @@
    function advanceSlide(n)
    {
     
+    //Initializations
     var x = document.getElementsByClassName("slide")[currentSlide - 1];
     var inputs = x.querySelectorAll("input[required]");
     var selects = x.querySelectorAll("select[required]");
     var audios = x.querySelectorAll("audio");
 
+     //Prevent user from movint to next slide if audio files have not been played.
+    for (var i = 0; i < audios.length; i++)
+   {
+       if(!audios[i].ended)
+        {
+  
+           alert("Please listen to the audio files before continuing.");
+           return;  
+   
+        }
+    }
+
+   //Prevent user from movint to next slide if fields are not filled 
    for (var i = 0; i < inputs.length; i++)
    {
       if (!inputs[i].checkValidity())
@@ -142,6 +161,7 @@
       }
    }
 
+     //Prevent user from movint to next slide if no choice made from dropdown
    for (var i = 0; i < selects.length; i++)
    {
       if (!selects[i].checkValidity())
@@ -151,27 +171,12 @@
       }
    }
 
-   for (var i = 0; i < audios.length; i++)
-   {
-  if(!audios[i].ended)
-   {
-  
-    alert("Please listen to the audio files before continuing.");
-    return;  
-   
-  }
-}
+ 
 
   displaySlide(currentSlide += n);
 }
 
-
-   
-    
- 
-
-
-   //Show the current slide
+   //Show the current slide (accept current slide counter)
    function displaySlide(n)
    {
 
@@ -225,10 +230,6 @@
    }
 
    </script>
-
-  
-  
-  
 
   </body>
 
